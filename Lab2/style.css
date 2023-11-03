@@ -1,0 +1,52 @@
+.venn-diagram-container {
+    display: flex;
+}
+
+.venn-diagram {
+    width: 300px;
+    height: 200px;
+    position: relative;
+}
+
+.venn-circle,
+.venn-circle-transform {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0.5;
+    border: 2px solid #000;
+}
+
+.venn-diagram-position .circle1 {
+    background-color: #ff8a6f;
+    top: 10px;
+    left: 65px;
+}
+
+.venn-diagram-position .circle2 {
+    background-color: #7aff93;
+    top: 70px;
+    left: 100px;
+}
+
+.venn-diagram-position .circle3 {
+    background-color: #71b3ff;
+    top: 70px;
+    left: 30px;
+}
+
+.venn-diagram-transform .circle1-transform {
+    background-color: #ff8a6f;
+    transform: translate(0, 10px);
+}
+
+.venn-diagram-transform .circle2-transform {
+    background-color: #7aff93;
+    transform: translate(35px, 70px);
+}
+
+.venn-diagram-transform .circle3-transform {
+    background-color: #71b3ff;
+    transform: translate(-35px, 70px);
+}

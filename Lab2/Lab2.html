@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторна №2</title>
+    <style>
+        table.tg {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        table.tg, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        tr.first-row th {
+            background-color: #558f8f;
+            color: #fff;
+        }
+
+        tr.second-row td {
+            background-color: #f5f555;
+            color: #000;
+        }
+
+        tr.first-row.hoverable:hover th {
+            background-color: #546A8F; /* Колір при наведенні курсора для відзначених рядків */
+            color: #fff; /* Колір тексту при наведенні курсора для відзначених рядків */
+        }
+
+        tr.second-row.hoverable:hover td {
+            background-color: #70F556; /* Колір при наведенні курсора для відзначених рядків */
+            color: #000; /* Колір тексту при наведенні курсора для відзначених рядків */
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <table class="tg">
+        <thead>
+            <tr class="first-row hoverable">
+                <th class="tg-0lax">Реу</th>
+                <th class="tg-0lax">Дар'я</th>
+                <th class="tg-0lax">Юріївна</th>
+                <th class="tg-0lax"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="second-row hoverable">
+                <td class="tg-0lax" rowspan="2">ІО-з11</td>
+                <td class="tg-0lax" rowspan="2">Лабораторна №2</td>
+                <td class="tg-0lax">Варіант</td>
+                <td class="tg-0lax" rowspan="2">№5</td>
+            </tr>
+            <tr class="second-row hoverable">
+                <td class="tg-0lax"></td>
+            </tr>
+            <tr>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="venn-diagram-container">
+
+        <div class="venn-diagram venn-diagram-position">
+            <div class="venn-circle circle1"></div>
+            <div class="venn-circle circle2"></div>
+            <div class="venn-circle circle3"></div>
+        </div>
+
+        <div class="venn-diagram venn-diagram-transform">
+            <div class="venn-circle-transform circle1-transform"></div>
+            <div class="venn-circle-transform circle2-transform"></div>
+            <div class="venn-circle-transform circle3-transform"></div>
+        </div>
+    </div>
+</body>
+</html>
