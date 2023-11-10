@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна 6</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        #userInfo {
+            display: flex;
+        }
+
+        .user {
+            margin-right: 10px;
+        }
+
+        button {
+            margin-bottom: 20px;
+            background-color: #4c82af;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="getMultipleUserInfo()">Отримати інформацію</button>
+
+    <div id="userInfo"></div>
+
+    <script>
+        function getMultipleUserInfo() {
+            clearUserInfo();
+
+            for (let i = 0; i < 5; i++) {
+                getUserInfo();
+            }
+        }
+
+        function getUserInfo() {
+            fetch('https://randomuser.me/api')
+                .then(response => response.json())
+                .then(data => {
+                    const user = data.results[0];
+                    const pictureUrl = user.picture.large;
+                    const cell = user.cell;
+                    const country = user.location.country;
+                    const email = user.email;
+                    const coordinates = `${user.location.coordinates.latitude}, ${user.location.coordinates.longitude}`;
+
+                    displayUserInfo(pictureUrl, cell, country, email, coordinates);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function displayUserInfo(pictureUrl, cell, country, email, coordinates) {
+            const userDiv = document.createElement('div');
+            userDiv.className = 'user';
+
+            const picture = document.createElement('img');
+            picture.src = pictureUrl;
+            picture.alt = 'User Picture';
+
+            const cellElement = document.createElement('p');
+            cellElement.innerText = `Cell: ${cell}`;
+
+            const countryElement = document.createElement('p');
+            countryElement.innerText = `Country: ${country}`;
+
+            const emailElement = document.createElement('p');
+            emailElement.innerText = `Email: ${email}`;
+
+            const coordinatesElement = document.createElement('p');
+            coordinatesElement.innerText = `Coordinates: ${coordinates}`;
+
+            userDiv.appendChild(picture);
+            userDiv.appendChild(cellElement);
+            userDiv.appendChild(countryElement);
+            userDiv.appendChild(emailElement);
+            userDiv.appendChild(coordinatesElement);
+
+            document.getElementById('userInfo').appendChild(userDiv);
+        }
+
+        function clearUserInfo() {
+            document.getElementById('userInfo').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
