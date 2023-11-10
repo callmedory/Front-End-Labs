@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна 5.2</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <table id="colorTable">
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var colorTable = document.getElementById('colorTable');
+
+            for (var i = 0; i < 6; i++) {
+                var row = colorTable.insertRow();
+                for (var j = 0; j < 6; j++) {
+                    var cell = row.insertCell();
+                    cell.innerText = i * 6 + j + 1;
+
+                    cell.addEventListener('mouseover', function () {
+                        var currentCellNumber = parseInt(this.innerText);
+                        if (currentCellNumber === 5) {
+                            this.style.backgroundColor = getRandomColor();
+                        }
+                    });
+
+                    cell.addEventListener('click', function () {
+                        var currentCellNumber = parseInt(this.innerText);
+                        if (currentCellNumber === 5) {
+                            this.style.backgroundColor = '#ffcc00';
+                        }
+                    });
+
+                    cell.addEventListener('dblclick', function () {
+                        var currentCellNumber = parseInt(this.innerText);
+                        if (currentCellNumber === 5) {
+                            var cells = document.querySelectorAll('td');
+                            for (var k = 0; k < cells.length; k++) {
+                                if (cells[k] !== this) {
+                                    cells[k].style.backgroundColor = getRandomColor();
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="форма, регулярні вирази">
+    <meta name="description" content="Форма з регулярною перевіркою">
+    <title>Лабораторна 5.1</title>
+    <style>
+        .error {
+            background-color: #FFD2D2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Форма для введення інформації</h2>
+
+<form id="myForm">
+    <label for="pib">ПІБ:</label>
+    <input type="text" id="pib" name="pib" pattern="[А-ЩЬЮЯҐЄІЇа-щьюяґєії']{1,50}\s[А-ЩЬЮЯҐЄІЇа-щьюяґєії]\.[А-ЩЬЮЯҐЄІЇа-щьюяґєії]\." required placeholder="Прізвище І.Б.">
+    <br>
+
+    <label for="faculty">Факультет:</label>
+    <input type="text" id="faculty" name="faculty" pattern="[А-ЩЬЮЯҐЄІЇа-щьюяґєії]{1,30}" required placeholder="Назва факультету">
+    <br>
+
+    <label for="dob">Дата народження:</label>
+    <input type="text" id="dob" name="dob" pattern="\d{2}\.\d{2}\.\d{4}" required placeholder="ЧЧ.ЧЧ.ЧЧЧЧ">
+    <br>
+
+    <label for="address">Адреса:</label>
+    <input type="text" id="address" name="address" pattern="[А-ЩЬЮЯҐЄІЇа-щьюяґєії]{1,50}" required placeholder="Назва міста">
+    <br>
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required placeholder="example@example.com">
+    <br>
+
+    <input type="button" value="Перевірити" onclick="validateForm()">
+</form>
+
+<script>
+    function validateForm() {
+        var form = document.getElementById("myForm");
+        var elements = form.elements;
+
+        for (var i = 0; i < elements.length; i++) {
+            var input = elements[i];
+
+            if (!input.checkValidity()) {
+                input.classList.add("error");
+            } else {
+                input.classList.remove("error");
+            }
+        }
+
+        var hasErrors = form.querySelectorAll(".error").length > 0;
+
+        if (!hasErrors) {
+            displayInformation();
+        }
+    }
+
+    var infoDiv;
+
+    function displayInformation() {
+        var pib = document.getElementById("pib").value;
+        var faculty = document.getElementById("faculty").value;
+        var dob = document.getElementById("dob").value;
+        var address = document.getElementById("address").value;
+        var email = document.getElementById("email").value;
+
+        if (!infoDiv) {
+            infoDiv = document.createElement("div");
+            infoDiv.style.marginTop = "10px";
+            document.body.appendChild(infoDiv);
+        }
+
+        infoDiv.innerHTML = "<strong>ПІБ:</strong> " + pib + "<br>" +
+                            "<strong>Факультет:</strong> " + faculty + "<br>" +
+                            "<strong>Дата народження:</strong> " + dob + "<br>" +
+                            "<strong>Адреса:</strong> " + address + "<br>" +
+                            "<strong>E-mail:</strong> " + email;
+    }
+</script>
+</body>
+</html>
