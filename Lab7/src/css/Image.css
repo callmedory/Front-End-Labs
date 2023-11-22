@@ -1,0 +1,22 @@
+button
+{
+    background-color:#fff092; 
+    border:2px solid #516364;
+    margin-top: 25px;
+}
+button:hover
+{
+    cursor: pointer;
+    background-color:#ffe95d;
+}
+button:active
+{
+    background-color:#ffe100;
+    color: white;
+}
+img
+{
+    height: 400px;
+    width: 550px;
+}
+    

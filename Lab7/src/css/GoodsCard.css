@@ -1,0 +1,25 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+.card .manga {
+    box-shadow: 2px 2px 5px 0px rgb(148, 154, 155);
+    padding: 20px;
+    margin: 10px;
+    width: 250px;
+    height: 350px;
+    background-color: aliceblue;
+    transition: transform ease-in-out 150ms;
+}
+.card .manga:hover {
+    transform: scale(1.05);
+}
+.manga{
+    text-align: center;
+}
+.manga_img{
+    width: 190px;
+    height: 250px;
+}

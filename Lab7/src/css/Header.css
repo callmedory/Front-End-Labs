@@ -1,0 +1,19 @@
+body
+{
+    padding: 15px 15px 15px 15px;
+}
+#first_element
+{
+    background-color: rgb(255, 166, 134);
+    color: #516364;
+}
+.second_element
+{
+    background-color: #b7ffc3;
+    color: #788788;
+}
+#first_element:hover, .second_element:hover
+{
+    cursor: pointer;
+}
+    
